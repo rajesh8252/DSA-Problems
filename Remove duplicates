@@ -1,0 +1,19 @@
+import java.util.*;
+public class Solution {
+	public static int removeDuplicates(ArrayList<Integer> arr,int n) {
+		if (arr == null || arr.isEmpty()) {
+            return 0;
+        }
+
+        int uniqueCount = 1;
+        for (int i = 1; i < arr.size(); i++) {
+            int current = arr.get(i);
+            int previous = arr.get(i - 1);
+
+            if (current != previous) {
+                uniqueCount++;
+            }
+        }
+        return uniqueCount;
+	}
+}
