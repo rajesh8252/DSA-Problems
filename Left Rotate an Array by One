@@ -1,0 +1,28 @@
+import java.util.* ;
+import java.io.*; 
+
+
+public class Solution {
+
+    static int[] rotateArray(int[] a, int n) {
+       int i=1,j=n-1;
+       while(i<j)
+       {
+           int t=a[i];
+           a[i]=a[j];
+           a[j]=t;
+           i++;
+           j--;
+       }
+       int c=0,d=n-1;
+       while(c<d)
+       {
+           int t=a[c];
+           a[c]=a[d];
+           a[d]=t;
+           c++;
+           d--;
+       }
+       return a;
+    }
+}
