@@ -12,8 +12,7 @@ class Anagaram
         {
             
             a[t.charAt(i)-'a']++;
-            a[s.charAt(i)-'a']--;
-            
+            a[s.charAt(i)-'a']--;   
         }
         for(int n:a)
         {
