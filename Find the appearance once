@@ -1,0 +1,19 @@
+import java.util.*;
+public class Solution {
+    public static int getSingleElement(int []arr){
+        List<Integer> lst=new ArrayList<>();
+        for(int i=0;i<arr.length;i++)
+        {
+            if(!lst.contains(arr[i]))
+            {
+                lst.add(arr[i]);
+            }
+            else
+            {
+                lst.remove(Integer.valueOf(arr[i]));
+            }
+        }
+        int r=lst.get(0);
+        return r;
+    }
+}
