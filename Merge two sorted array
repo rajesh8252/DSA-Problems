@@ -1,0 +1,46 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Solution {
+    public static List<Integer> sortedArray(int[] a, int[] b) {
+        List<Integer> lst = new ArrayList<>();
+        int i = 0, j = 0;
+
+        while (i < a.length && j < b.length) {
+            if (a[i] < b[j]) {
+                if (i == 0 || a[i] != a[i - 1]) { 
+                    lst.add(a[i]);
+                }
+                i++;
+            } else if (a[i] > b[j]) {
+                if (j == 0 || b[j] != b[j - 1]) { 
+                    lst.add(b[j]);
+                }
+                j++;
+            } else { // Both elements are equal
+                if ((i == 0 || a[i] != a[i - 1]) && (j == 0 || b[j] != b[j - 1])) {
+                    lst.add(a[i]); // Add only one of the duplicates
+                }
+                i++;
+                j++;
+            }
+        }
+
+        // Add remaining elements from both arrays
+        while (i < a.length) {
+            if (i == 0 || a[i] != a[i - 1]) {
+                lst.add(a[i]);
+            }
+            i++;
+        }
+
+        while (j < b.length) {
+            if (j == 0 || b[j] != b[j - 1]) {
+                lst.add(b[j]);
+            }
+            j++;
+        }
+
+        return lst;
+    }
+}
