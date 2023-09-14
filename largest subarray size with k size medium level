@@ -1,0 +1,24 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static int getLongestSubarray(int []nums, int k) {
+		 Map<Integer, Integer> cumSumMap = new HashMap<>();
+        cumSumMap.put(0, -1); 
+        int maxLen = 0;
+        int currSum = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            currSum += nums[i];
+
+            if (cumSumMap.containsKey(currSum - k)) {
+                maxLen = Math.max(maxLen, i - cumSumMap.get(currSum - k));
+            }
+
+            if (!cumSumMap.containsKey(currSum)) {
+                cumSumMap.put(currSum, i);
+            }
+        }
+
+        return maxLen;
+	}
+}
