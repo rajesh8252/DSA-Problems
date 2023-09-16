@@ -1,0 +1,25 @@
+import java.util.*;
+public class Solution {
+    public static int longestSuccessiveElements(int []a) {
+        Set < Integer > hashSet = new HashSet <Integer> ();
+        for (int num:a) {
+            hashSet.add(num);
+        }
+        int max=Integer.MIN_VALUE;
+        for(int num:a)
+        {
+            if(!hashSet.contains(num-1))
+            {
+                int cur=num;
+                int strick=1;
+                while(hashSet.contains(cur+1))
+                {
+                    strick++;
+                    cur++;
+                }
+                max=Math.max(max,strick);
+            }
+        }
+        return max;
+    }
+}
