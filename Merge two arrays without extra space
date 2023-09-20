@@ -1,0 +1,37 @@
+import java.util.*;
+public class Solution {
+    public static long[] mergeTwoSortedArraysWithoutExtraSpace(long []a, long []b){
+        int i=a.length-1,j=0;
+        while(i>=0 && j<b.length-1)
+        {
+            if(a[i]>b[j])
+            {
+                long t = a[i];
+                a[i]  = b[j];
+                b[j]  = t;
+                
+            i--;
+            j++;
+            }
+            else
+            {
+                break;
+            }
+        }
+        Arrays.sort(a);
+        Arrays.sort(b);
+        int size=a.length+b.length;
+        long[] ans=new long[size];
+        int ii=0;
+        while(ii<a.length)
+        {
+            ans[ii]=a[ii++];
+        }
+        int jj=0;
+        while(ii<a.length+b.length)
+        {
+            ans[ii++]=b[jj++];
+        }
+        return ans;
+    }
+}
