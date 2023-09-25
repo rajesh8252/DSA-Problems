@@ -1,0 +1,10 @@
+import java.util.* ;
+import java.io.*; 
+public class Solution {
+	public static long evenSumTillN(int n) {
+		  if (n % 2 == 1) {
+            n--; // If n is odd, make it even
+        }
+        return (long)(n / 2) * ((n / 2) + 1);
+	}
+}
