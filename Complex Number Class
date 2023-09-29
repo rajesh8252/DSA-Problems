@@ -1,0 +1,54 @@
+import java.util.*;
+import java.io.*;
+import java.util.Scanner;
+
+class ComplexNumbers {
+    int c1 = 0;
+    int c2 = 0;
+
+    ComplexNumbers(int c1, int c2) {
+        this.c1 = c1;
+        this.c2 = c2;
+    }
+    public void print()
+    {
+        System.out.println(this.c1+" + "+"i"+this.c2);
+    }
+}
+
+class Solution {
+
+    public static void main(String args[]) {
+        Scanner sc = new Scanner(System.in);
+        int c1 = sc.nextInt();
+        int c2 = sc.nextInt();
+        ComplexNumbers ob1 = new ComplexNumbers(c1, c2);
+        int ca1 = sc.nextInt();
+        int ca2 = sc.nextInt();
+        ComplexNumbers ob2 = new ComplexNumbers(ca1, ca2);
+        int op = sc.nextInt();
+        if (op == 1) 
+		{
+            int a = ob1.c1;
+            int b = ob1.c2;
+            int c = ob2.c1;
+            int d = ob2.c2;
+            int ans1 = a + c;
+            int ans2 = b + d;
+            ComplexNumbers ob3 = new ComplexNumbers(ans1,ans2);
+            ob3.print();
+        }
+        if (op == 2) 
+		{
+            int a = ob1.c1;
+            int b = ob1.c2;
+            int c = ob2.c1;
+            int d = ob2.c2;
+
+            int ans1 = (a * c - b * d);
+            int ans2 = (a * d + b * c);
+            ComplexNumbers ob3 = new ComplexNumbers(ans1,ans2);
+            ob3.print();
+		}
+    }
+}
