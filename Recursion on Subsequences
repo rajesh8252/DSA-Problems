@@ -1,0 +1,26 @@
+ import java.util.*;
+class HelloWorld {
+    public static void printF(int ind,ArrayList<Integer> lst,int[] arr)
+    {
+        if(ind==arr.length)
+        {
+            if(lst.size()>0)
+            {
+                System.out.println(lst);
+            }
+        }
+        else
+        {
+             lst.add(arr[ind]);
+            printF(ind+1,lst,arr);
+            lst.remove(lst.size()-1);
+            printF(ind+1,lst,arr);
+        }
+       
+    }
+    public static void main(String[] args) {
+        ArrayList<Integer> lst=new ArrayList<>();
+        int[] arr=new int[]{3,2,1};
+        printF(0,lst,arr);
+    }
+}
