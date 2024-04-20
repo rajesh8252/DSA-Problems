@@ -1,0 +1,34 @@
+import java.util.*;
+class HelloWorld {
+    static void findCom(int ind,int[] arr,int target,List<List<Integer>> ans,ArrayList<Integer> ds)
+    {
+        if(ind==arr.length)
+        {
+            if(target==0)
+            {
+                ans.add(new ArrayList<>(ds));
+            }
+            return;
+        }
+        if(arr[ind]<=target)
+        {
+            ds.add(arr[ind]);
+            findCom(ind,arr,target-arr[ind],ans,ds);
+            ds.remove(ds.size()-1);
+        }
+        findCom(ind+1,arr,target,ans,ds);
+    }
+    static List<List<Integer>> funct(int[] arr,int target)
+    {
+        List<List<Integer>> ans=new ArrayList<>();
+        findCom(0,arr,target,ans,new ArrayList<>());
+        return ans;
+    }
+    public static void main(String[] args) 
+    {
+        int target=7;
+        int[] arr=new int[]{2,3,6,7};
+        List<List<Integer>> lst=funct(arr,target);
+        System.out.println(lst);
+    }
+}
