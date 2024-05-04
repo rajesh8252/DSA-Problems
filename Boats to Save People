@@ -1,0 +1,20 @@
+import java.util.*;
+class Solution {
+    public int numRescueBoats(int[] p, int limit) {
+        int c=0;
+        int remain=0;
+        int l=0,r=p.length-1;
+        Arrays.sort(p);
+        while(l<=r)
+        {
+            remain=limit-p[r];
+            r-=1;
+            c+=1;
+            if(l<=r && remain>=p[l])
+            {
+                l+=1;
+            }
+        }
+        return c;
+    }
+}
