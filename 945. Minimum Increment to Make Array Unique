@@ -1,0 +1,22 @@
+import java.util.*;
+class Solution {
+    public int minIncrementForUnique(int[] nums) {
+    
+     Arrays.sort(nums);
+
+     int pre=0;
+     int cur=0;
+     int ans=0;
+     for(int i=1;i<nums.length;i++)
+     {
+        pre=nums[i-1];
+        cur=nums[i];
+        if(pre>=cur)
+        {
+            ans+=pre-cur+1;
+            nums[i]=pre+1;
+        }
+     }   
+     return ans;
+    }
+}945. Minimum Increment to Make Array Unique
