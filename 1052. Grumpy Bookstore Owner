@@ -1,0 +1,25 @@
+class Solution {
+    public int maxSatisfied(int[] c, int[] g, int m) {
+        int zero=0;
+        int window=0;
+        int maxwindow=0;
+        int n=c.length;
+        for(int i=0;i<n;i++)
+        {
+            if(g[i]==0)
+            {
+                zero+=c[i];
+            }
+            if(i<m)
+            {
+                window+=(g[i]==1?c[i]:0);
+            }
+            else
+            {
+                window+=((g[i]==1?c[i]:0)-(g[i-m]==1?c[i-m]:0));
+            }
+            maxwindow=Math.max(maxwindow,window);
+        }
+        return zero+maxwindow;
+    }
+}
